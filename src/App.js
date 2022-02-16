@@ -1,10 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Header from './Components/Header'
+import Balance from './Components/Balance'
+import InComeExpense from './Components/InComeExpense'
+import TranctionList from './Components/TranctionList';
+import Transcation from './Components/Transcation';
+
 
 function App() {
   return (
     <div className="App">
-    hello world
+   <Header />
+   <div>
+     <Balance />
+     <InComeExpense />
+     <TranctionList/>
+     <Transcation />
+   </div>
     </div>
   );
 }
