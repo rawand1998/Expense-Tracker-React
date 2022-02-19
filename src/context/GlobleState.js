@@ -15,6 +15,7 @@ import AppReducer from './AppReducer'
 export const  GlobleContext = createContext(initalState)
 export const GlobleProvider = ({children})=>{
     const [state,dispatch] = useReducer(AppReducer,initalState)
+    //actions
     function deleteTranstion (id){
         dispatch({
             type: 'DELETE_TRANSCTION',
@@ -23,8 +24,16 @@ export const GlobleProvider = ({children})=>{
         
 
     }
+    function addTranstion (transaction){
+        dispatch({
+            type: 'Add_TRANSCTION',
+            payload: transaction
+        })
+        
+
+    }
     return (
-        <GlobleContext.Provider value={{transactions:state.transactions , deleteTranstion}}  >
+        <GlobleContext.Provider value={{transactions:state.transactions , deleteTranstion,addTranstion}}  >
             {children}
         </GlobleContext.Provider>
       )
