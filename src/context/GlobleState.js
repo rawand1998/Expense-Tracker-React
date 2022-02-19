@@ -15,8 +15,16 @@ import AppReducer from './AppReducer'
 export const  GlobleContext = createContext(initalState)
 export const GlobleProvider = ({children})=>{
     const [state,dispatch] = useReducer(AppReducer,initalState)
+    function deleteTranstion (id){
+        dispatch({
+            type: 'DELETE_TRANSCTION',
+            payload: id
+        })
+        
+
+    }
     return (
-        <GlobleContext.Provider value={{transactions:state.transactions}} >
+        <GlobleContext.Provider value={{transactions:state.transactions , deleteTranstion}}  >
             {children}
         </GlobleContext.Provider>
       )
