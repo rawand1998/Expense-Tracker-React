@@ -5,11 +5,11 @@ import Balance from './Components/Balance'
 import InComeExpense from './Components/InComeExpense'
 import TranctionList from './Components/TranctionList';
 import Transcation from './Components/Transcation';
-
+import {GlobleProvider} from './context/GlobleState'
 
 function App() {
   return (
-    <div className="App">
+    <GlobleProvider>
    <Header />
    <div>
      <Balance />
@@ -17,7 +17,7 @@ function App() {
      <TranctionList/>
      <Transcation />
    </div>
-    </div>
+    </GlobleProvider>
   );
 }
 
