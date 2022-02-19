@@ -1,15 +1,30 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {GlobleContext} from '../context/GlobleState'
 
  const InComeExpense = () => {
+   const {transactions}= useContext(GlobleContext)
+  const amounts = transactions.map(transaction => transaction.amount);
+
+
+
+  const income = amounts
+    .filter(item => item > 0)
+    .reduce((acc, item) => (acc += item), 0)
+    .toFixed(2);
+
+  const expense = (
+    amounts.filter(item => item < 0).reduce((acc, item) => (acc += item), 0) *
+    -1
+  ).toFixed(2);
   return (
     <div className="inc-exp-container">
         <div>
           <h4>Income</h4>
-          <p Name="money plus">+$0.00</p>
+          <p Name="money plus">+{income}</p>
         </div>
         <div>
           <h4>Expense</h4>
-          <p  Name="money minus">-$0.00</p>
+          <p  Name="money minus">-${expense}</p>
         </div>
       </div>
   )
