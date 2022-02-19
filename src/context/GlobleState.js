@@ -14,7 +14,7 @@ import AppReducer from './AppReducer'
     
 export const  GlobleContext = createContext(initalState)
 export const GlobleProvider = ({children})=>{
-    const {state,dispatch} = useReducer(AppReducer,initalState)
+    const [state,dispatch] = useReducer(AppReducer,initalState)
     return (
         <GlobleContext.Provider value={{transactions:state.transactions}} >
             {children}
